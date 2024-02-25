@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgq1ul3nwkle8"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_dunfb"]
+[ext_resource type="PackedScene" uid="uid://bob1vcxqspsnj" path="res://building.tscn" id="2_5jk16"]
+[ext_resource type="Script" path="res://building.gd" id="3_n1k6q"]
+[ext_resource type="Script" path="res://CoordinatesLabel.gd" id="3_pevbf"]
+
+[sub_resource type="TileSet" id="TileSet_ewxvk"]
+tile_size = Vector2i(128, 128)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_dunfb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Tiles" type="TileMap" parent="."]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_ewxvk")
+format = 2
+
+[node name="CoordinatesLabel" type="Label" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = 615.0
+offset_right = 1265.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "coordinates"
+script = ExtResource("3_pevbf")
+
+[node name="Building" parent="." instance=ExtResource("2_5jk16")]
+unique_name_in_owner = true
+script = ExtResource("3_n1k6q")
+
+[connection signal="update" from="Building" to="CoordinatesLabel" method="_on_building_update"]

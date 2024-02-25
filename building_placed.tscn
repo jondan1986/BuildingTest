@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bkcviw3kxen3c"]
+
+[node name="Building_Placed" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 127.0
+offset_bottom = 127.0
+color = Color(0.0117647, 0.603922, 0.0784314, 1)
